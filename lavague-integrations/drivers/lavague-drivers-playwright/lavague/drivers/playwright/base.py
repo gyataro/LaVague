@@ -263,13 +263,13 @@ class PlaywrightDriver(BaseDriver):
 
     def click(self, xpath: str):
         elem = self.resolve_xpath(xpath).first
-        elem.click()
+        elem.click(force=True)
 
     def set_value(self, xpath: str, value: str, enter: bool = False):
         elem = self.resolve_xpath(xpath).first
-        elem.clear()
-        elem.click()
-        elem.fill(value)
+        elem.clear(force=True)
+        elem.click(force=True)
+        elem.fill(value, force=True)
         if enter:
             elem.press("Enter")
 
