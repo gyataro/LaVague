@@ -24,16 +24,16 @@ class OpenaiContext(Context):
                 raise ValueError("OPENAI_API_KEY is not set")
         return super().__init__(
             OpenAI(
-                base_url=base_url,
+                api_base=base_url,
                 api_key=api_key,
                 model=llm,
                 max_tokens=DEFAULT_MAX_TOKENS,
                 temperature=DEFAULT_TEMPERATURE,
             ),
-            OpenAIMultiModal(base_url=base_url, api_key=api_key, model=mm_llm),
-            OpenAIEmbedding(base_url=base_url, api_key=api_key, model=embedding),
+            OpenAIMultiModal(api_base=base_url, api_key=api_key, model=mm_llm),
+            OpenAIEmbedding(api_base=base_url, api_key=api_key, model=embedding),
             OpenAI(
-                base_url=base_url,
+                api_base=base_url,
                 api_key=api_key,
                 model=llm,
                 max_tokens=4096,
